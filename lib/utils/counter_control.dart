@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'counter_model.dart';
 import 'package:provider/provider.dart';
+import '../models/counter_model.dart';
 
 class CounterControl extends StatelessWidget {
   const CounterControl({

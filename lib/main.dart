@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'pages/widgets/counter_test.dart';
-import 'providers/counter_model.dart';
-
-// import 'package:layout/pages/video_player_page.dart';
-import 'pages/widgets/bottom_nav_bar.dart';
+import 'widgets/counter_test.dart';
+import 'models/counter_model.dart';
+import 'widgets/bottom_nav_bar.dart';
+import 'screens/video_player_page.dart';
 // import 'package:layout/pages/home_page.dart';
 
 void main() {
@@ -29,8 +28,8 @@ class MyApp extends StatelessWidget {
         body: ListView(
           children: [
             // HomePage(),
-            // VideoPlayerPage(),
-            CounterTest(),
+            VideoPlayerPage(),
+            // CounterTest(),
           ],
         ),
         bottomNavigationBar: const BottomAppBar(child: BottomNavBar()),

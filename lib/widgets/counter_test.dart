@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/counter_control.dart';
-import '../../providers/counter_model.dart';
+import '../utils/counter_control.dart';
+import '../models/counter_model.dart';
 
 class CounterTest extends StatelessWidget {
   const CounterTest({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/home_carousel_slide.dart';
-import 'widgets/horizontal_video_list.dart';
+import '../widgets/home_carousel_slide.dart';
+import '../widgets/horizontal_video_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
