@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/home_carousel_slide.dart';
+import 'widgets/horizontal_video_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,18 +14,18 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: Column(
               children: [
-                videoList("최근 본 작품"),
+                // HorizontalVideoList("최근 본 작품"),
                 SizedBox(height: 20),
                 NewVideoList(),
                 SizedBox(height: 20),
-                videoList("성우 코가 아오이 출연작 모음"),
+                // HorizontalVideoList("성우 코가 아오이 출연작 모음"),
                 SizedBox(height: 20),
                 HotVideoList(),
                 SizedBox(height: 20),
                 SizedBox(height: 20),
-                videoList("일상 속 따스한 미소"),
+                // HorizontalVideoList("일상 속 따스한 미소"),
                 SizedBox(height: 20),
-                videoList("내 사전에 풀리지 않는 사건이란 없어"),
+                // HorizontalVideoList("내 사전에 풀리지 않는 사건이란 없어"),
                 EventList(),
                 SizedBox(height: 20),
               ],
@@ -34,53 +35,53 @@ class HomePage extends StatelessWidget {
   }
 }
 
-Widget videoList(String title) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-      HorizontalScrollList()
-    ],
-  );
-}
+// Widget videoList(String title) {
+//   return Column(
+//     crossAxisAlignment: CrossAxisAlignment.start,
+//     children: [
+//       Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+//       HorizontalScrollList()
+//     ],
+//   );
+// }
 
 // MARK: 공통 뷰 위젯
-Widget singleVideoThumbnailCard(String title) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Container(width: 200, height: 120, color: Colors.grey),
-      Text(title)
-    ],
-  );
-}
+// Widget singleVideoThumbnailCard(String title) {
+//   return Column(
+//     crossAxisAlignment: CrossAxisAlignment.start,
+//     children: [
+//       Container(width: 200, height: 120, color: Colors.grey),
+//       Text(title)
+//     ],
+//   );
+// }
 
-class HorizontalScrollList extends StatelessWidget {
-  const HorizontalScrollList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              singleVideoThumbnailCard("제목"),
-              SizedBox(width: 20),
-              singleVideoThumbnailCard("제목"),
-              SizedBox(width: 20),
-              singleVideoThumbnailCard("제목"),
-              SizedBox(width: 20),
-              singleVideoThumbnailCard("제목"),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
+// class HorizontalScrollList extends StatelessWidget {
+//   const HorizontalScrollList({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SingleChildScrollView(
+//       scrollDirection: Axis.horizontal,
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           Row(
+//             children: [
+//               singleVideoThumbnailCard("제목"),
+//               SizedBox(width: 20),
+//               singleVideoThumbnailCard("제목"),
+//               SizedBox(width: 20),
+//               singleVideoThumbnailCard("제목"),
+//               SizedBox(width: 20),
+//               singleVideoThumbnailCard("제목"),
+//             ],
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class MoreDetailNavButton extends StatelessWidget {
   const MoreDetailNavButton({super.key});
@@ -198,7 +199,7 @@ class NewVideoList extends StatelessWidget {
             dayButton("일"),
           ],
         ),
-        HorizontalScrollList()
+        // HorizontalScrollList()
       ],
     );
   }
