@@ -38,10 +38,10 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                           ],
                         ),
                       Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                                "episode summaryepisode summaryepisode summaryepisode summary",
+                                "episode summary",
                                 style: TextStyle(color: Colors.grey), softWrap: true),
                             Text("...더보기",
                                 style: TextStyle(
