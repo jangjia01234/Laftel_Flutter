@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/anime_info_model.dart';
 import '../data/anime_data.dart';
 
-import '../widgets/single_video_player.dart';
-import '../widgets/thin_divider.dart';
+import '../widgets/common/single_video_player.dart';
+import '../widgets/common/thin_divider.dart';
 
 class VideoPlayerPage extends StatefulWidget {
   final int animeIndex;
