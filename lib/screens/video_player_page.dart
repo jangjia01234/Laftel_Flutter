@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../widgets/single_video_player.dart';
-import '../widgets/thin_divider.dart';
-import '../widgets/horizontal_video_list.dart';
 
 import '../models/anime_info_model.dart';
 import '../data/anime_data.dart';
+
+import '../widgets/single_video_player.dart';
+import '../widgets/thin_divider.dart';
 
 class VideoPlayerPage extends StatefulWidget {
   final int animeIndex;
@@ -128,7 +128,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                               padding: EdgeInsets.only(top: 20, bottom: 10),
                               child: Row(
                                 children: [
-                                  Icon(Icons.circle_rounded, color: Colors.grey),
+                                  Icon(Icons.circle_rounded,
+                                      color: Colors.grey),
                                   SizedBox(width: 5),
                                   Text("스포일러가 있어요!",
                                       style: TextStyle(color: Colors.grey)),
