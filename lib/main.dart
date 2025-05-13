@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
       create: (_) => CounterModel(),
       child: MaterialApp(
           home: Scaffold(
-        appBar: AppBar(
-          actions: const [
-            Icon(Icons.notifications_outlined),
-            Icon(Icons.search)
-          ],
-        ),
+        // appBar: AppBar(
+        //   actions: const [
+        //     Icon(Icons.notifications_outlined),
+        //     Icon(Icons.search)
+        //   ],
+        // ),
         body: ListView(
           children: [
             // HomePage(),
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             // CounterTest(),
           ],
         ),
-        bottomNavigationBar: const BottomAppBar(child: BottomNavBar()),
+        // bottomNavigationBar: const BottomAppBar(child: BottomNavBar()),
       )),
     );
   }

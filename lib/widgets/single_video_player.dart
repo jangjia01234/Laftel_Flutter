@@ -68,82 +68,113 @@ class _SingleVideoPlayerState extends State<SingleVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Center(
+    return Stack(
+      children: [
+        // 메인 영상
+        Positioned(
+            child: Container(
+          width: double.infinity,
+          height: 200,
+          color: Colors.blue,
           child: Stack(
-        children: [
-          // 영상
-          _controller.value.isInitialized
-              ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-              : Container(),
-
-          // 뒤로가기, 재생/정지, 앞으로가기
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            alignment: Alignment.center,
             children: [
-              IconButton(
-                iconSize: 24,
-                icon: Icon(Icons.replay_5_rounded, color: Colors.white),
-                onPressed: () {
-                  seekTo(-5);
-                },
-              ),
-              IconButton(
-                iconSize: 60,
-                icon: Icon(
-                    _controller.value.isPlaying
-                        ? Icons.pause_rounded
-                        : Icons.play_arrow_rounded,
-                    color: Colors.white),
-                onPressed: () {
-                  setState(() {
-                    _controller.value.isPlaying
-                        ? _controller.pause()
-                        : _controller.play();
-                  });
-                },
-              ),
-              IconButton(
-                iconSize: 24,
-                icon: Icon(Icons.forward_5_rounded, color: Colors.white),
-                onPressed: () {
-                  seekTo(5);
-                },
+              // 플레이할 영상
+              _controller.value.isInitialized
+                  ? AspectRatio(
+                      aspectRatio: _controller.value.aspectRatio,
+                      child: VideoPlayer(_controller),
+                    )
+                  : Container(),
+
+              Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                      width: 100,
+                      height: 200,
+                      color: Colors.black.withOpacity(0.5))),
+
+              // 뒤로가기, 재생/정지, 앞으로가기
+              // TODO: 더 매끄럽게 동작하도록 개선 필요
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    iconSize: 24,
+                    icon: Icon(Icons.replay_5_rounded, color: Colors.white),
+                    onPressed: () {
+                      seekTo(-5);
+                    },
+                  ),
+                  IconButton(
+                    iconSize: 60,
+                    icon: Icon(
+                        _controller.value.isPlaying
+                            ? Icons.pause_rounded
+                            : Icons.play_arrow_rounded,
+                        color: Colors.white),
+                    onPressed: () {
+                      setState(() {
+                        _controller.value.isPlaying
+                            ? _controller.pause()
+                            : _controller.play();
+                      });
+                    },
+                  ),
+                  IconButton(
+                    iconSize: 24,
+                    icon: Icon(Icons.forward_5_rounded, color: Colors.white),
+                    onPressed: () {
+                      seekTo(5);
+                    },
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      )),
-
-      // 하단바
-      VideoProgressIndicator(_controller, allowScrubbing: true),
-
-      Padding(
-          padding: EdgeInsets.only(left: 10, right: 10),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            // 현재 시간
-            Text(_controller.value.position.toString().substring(2, 7)),
-
+        )),
+        // 하단 플레이어 컨트롤
+        Positioned(
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: Container(
+            width: 100,
+            height: 30,
+            child:
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // 현재 시간
+                Text(_controller.value.position.toString().substring(2, 7),
+                    style: TextStyle(color: Colors.white)),
+                // 프로그래스 바
+                SizedBox(
+                    width: 200,
+                    child: VideoProgressIndicator(_controller,
+                        allowScrubbing: true)),
                 // 전체 시간
-                Text(_controller.value.duration.toString().substring(2, 7)),
+                Text(_controller.value.duration.toString().substring(2, 7),
+                    style: TextStyle(color: Colors.white)),
                 // 전체화면 전환
+                // FIXME: 가로모드에서 불필요한 여백 발생
                 GestureDetector(
                     onTap: () {
                       toggleFullScreen();
                     },
-                    child: Icon(_isFullScreen
-                        ? Icons.fullscreen_exit_rounded
-                        : Icons.fullscreen_rounded)),
+                    child: Icon(
+                        _isFullScreen
+                            ? Icons.fullscreen_exit_rounded
+                            : Icons.fullscreen_rounded,
+                        color: Colors.white)),
               ],
             ),
-          ])),
-    ]);
+          ),
+        ),
+      ],
+    );
   }
 
   @override
