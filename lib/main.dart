@@ -22,6 +22,10 @@ class MyApp extends StatelessWidget {
         routes: routes,
         // 디버그 표시 끄기
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            brightness: Brightness.light,
+            primaryColor: Colors.indigoAccent,
+            scaffoldBackgroundColor: Colors.white),
       ),
     );
   }
