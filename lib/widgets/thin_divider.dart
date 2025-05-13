@@ -5,9 +5,14 @@ class ThinDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
         padding: EdgeInsets.only(top: 20, bottom: 20),
-        child: Divider(thickness: 1, height: 1, color: Colors.grey),
+        child:
+        Container(
+            width: double.infinity,
+            height: 0.4,
+            color: Colors.black.withOpacity(0.15)
+        )
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/bottom_nav_bar.dart';
 import '../widgets/home_carousel_slide.dart';
 import '../widgets/horizontal_video_list.dart';
 
@@ -7,31 +8,49 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        HomeCarouselSlide(),
-        Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              children: [
-                // HorizontalVideoList("최근 본 작품"),
-                SizedBox(height: 20),
-                NewVideoList(),
-                SizedBox(height: 20),
-                // HorizontalVideoList("성우 코가 아오이 출연작 모음"),
-                SizedBox(height: 20),
-                HotVideoList(),
-                SizedBox(height: 20),
-                SizedBox(height: 20),
-                // HorizontalVideoList("일상 속 따스한 미소"),
-                SizedBox(height: 20),
-                // HorizontalVideoList("내 사전에 풀리지 않는 사건이란 없어"),
-                EventList(),
-                SizedBox(height: 20),
-              ],
-            ))
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        actions: const [
+          Icon(Icons.notifications_outlined),
+          Icon(Icons.search)
+        ],
+      ),
+      body: Center(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/video');
+          },
+          child: Text('go to video player screen'),
+        ),
+      ),
+      bottomNavigationBar: const BottomAppBar(child: BottomNavBar()),
     );
+
+    //   Column(
+    //   children: [
+    //     HomeCarouselSlide(),
+    //     Padding(
+    //         padding: EdgeInsets.all(16.0),
+    //         child: Column(
+    //           children: [
+    //             // HorizontalVideoList("최근 본 작품"),
+    //             SizedBox(height: 20),
+    //             NewVideoList(),
+    //             SizedBox(height: 20),
+    //             // HorizontalVideoList("성우 코가 아오이 출연작 모음"),
+    //             SizedBox(height: 20),
+    //             HotVideoList(),
+    //             SizedBox(height: 20),
+    //             SizedBox(height: 20),
+    //             // HorizontalVideoList("일상 속 따스한 미소"),
+    //             SizedBox(height: 20),
+    //             // HorizontalVideoList("내 사전에 풀리지 않는 사건이란 없어"),
+    //             EventList(),
+    //             SizedBox(height: 20),
+    //           ],
+    //         ))
+    //   ],
+    // );
   }
 }
 
