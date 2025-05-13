@@ -4,7 +4,7 @@ import 'widgets/counter_test.dart';
 import 'models/counter_model.dart';
 import 'widgets/bottom_nav_bar.dart';
 import 'screens/video_player_page.dart';
-// import 'package:layout/pages/home_page.dart';
+import 'screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());

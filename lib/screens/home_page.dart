@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
 //   );
 // }
 
-// MARK: 공통 뷰 위젯
+// // MARK: 공통 뷰 위젯
 // Widget singleVideoThumbnailCard(String title) {
 //   return Column(
 //     crossAxisAlignment: CrossAxisAlignment.start,
