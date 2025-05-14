@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'routes.dart';
 
 // TODO: 상태관리 적용 후 예제 삭제
-import 'widgets/counter_test.dart';
 import 'models/counter_model.dart';
 
 void main() async {

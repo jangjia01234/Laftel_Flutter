@@ -19,14 +19,14 @@ class HomePage extends StatelessWidget {
         actions: const [Icon(Icons.notifications_outlined), Icon(Icons.search)],
         backgroundColor: Colors.white,
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.5,
                 child:
                     // TODO: 현재 임시로 캐러셀에 Navigation 달아둔 상태. 수정 필요
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar:
-          const BottomAppBar(child: BottomNavBar(), color: Colors.white),
+          const BottomAppBar(color: Colors.white, child: BottomNavBar()),
     );
   }
 }
