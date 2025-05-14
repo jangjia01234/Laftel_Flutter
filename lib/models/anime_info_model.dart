@@ -13,6 +13,7 @@ class AnimeInfo {
 class Episode {
   final String title;
   final String summary;
+  final String thumbnailImageUrl;
 
-  Episode({required this.title, required this.summary});
+  Episode({required this.title, required this.summary, required this.thumbnailImageUrl});
 }

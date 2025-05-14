@@ -6,6 +6,8 @@ import '../data/anime_data.dart';
 import '../widgets/common/single_video_player.dart';
 import '../widgets/common/thin_divider.dart';
 
+import '../utils/string_extension.dart';
+
 class VideoPlayerScreen extends StatefulWidget {
   final int animeIndex;
   final int episodeIndex;
@@ -73,7 +75,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                             ),
 
                             // TODO: 말줄임표(..) 뒤에 더보기 버튼 삽입
-                            Container(
+                            SizedBox(
                               width: double.infinity,
                               child: Row(
                                 children: [
@@ -149,8 +151,54 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                       children: [
                         Text("에피소드",
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        // HorizontalVideoList(),
-                        SizedBox(height: 40),
+                        SizedBox(height: 10),
+                        Container(
+                          constraints: const BoxConstraints(minHeight: 50),
+                          height: 140,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            physics: const AlwaysScrollableScrollPhysics(),
+                            itemCount: selectedAnime.episodes.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Row(
+                                children: [
+                                  SizedBox(
+                                    width: 140,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        // TODO: 이미지 lazy loading 혹은 skeleton 처리 필요
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(4),
+                                          child:
+                                              Image.network(selectedAnime
+                                                  .episodes[index]
+                                                  .thumbnailImageUrl),
+                                        ),
+                                        SizedBox(height: 10),
+                                        // MARK: (긴 제목 에피소드 대비) 말줄임표 처리
+                                        RichText(
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          text: TextSpan(
+                                              text: selectedAnime
+                                                  .episodes[index].title
+                                                  .insertZwj(),
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 12,
+                                              )),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(width: 10)
+                                ],
+                              );
+                            },
+                          ),
+                        ),
                       ],
                     ),
                   )
