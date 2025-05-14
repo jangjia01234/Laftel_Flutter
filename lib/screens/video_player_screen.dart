@@ -31,21 +31,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     return Scaffold(
       body: Center(
         child: Column(children: [
-          SizedBox(height: 40),
-          Stack(
-            children: [
-              SingleVideoPlayer(),
-              Padding(
-                  padding: EdgeInsets.all(15),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(Icons.close_rounded,
-                        color: Colors.white, size: 30),
-                  )),
-            ],
-          ),
+          SingleVideoPlayer(),
           SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
