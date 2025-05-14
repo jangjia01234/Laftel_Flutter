@@ -5,13 +5,33 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Column(children: [Icon(Icons.home_outlined), Text("홈")]),
-        Column(children: [Icon(Icons.check_box_outlined), Text("태그검색")]),
-        Column(children: [Icon(Icons.bookmark_border_outlined), Text("보관함")]),
-        Column(children: [Icon(Icons.account_circle_outlined), Text("MY")]),
+        GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/');
+            },
+            child: Column(children: [Icon(Icons.home_outlined), Text("홈")]),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/search');
+          },
+          child: Column(children: [Icon(Icons.home_outlined), Text("태그검색")]),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/bookmark');
+          },
+          child: Column(children: [Icon(Icons.home_outlined), Text("보관함")]),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/mypage');
+          },
+          child: Column(children: [Icon(Icons.home_outlined), Text("MY")]),
+        ),
       ],
     );
   }
