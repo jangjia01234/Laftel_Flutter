@@ -6,21 +6,21 @@ import '../data/anime_data.dart';
 import '../widgets/common/single_video_player.dart';
 import '../widgets/common/thin_divider.dart';
 
-class VideoPlayerPage extends StatefulWidget {
+class VideoPlayerScreen extends StatefulWidget {
   final int animeIndex;
   final int episodeIndex;
 
-  const VideoPlayerPage({
+  const VideoPlayerScreen({
     super.key,
     this.animeIndex = 0,
     this.episodeIndex = 0,
   });
 
   @override
-  State<VideoPlayerPage> createState() => _VideoPlayerPageState();
+  State<VideoPlayerScreen> createState() => _VideoPlayerScreenState();
 }
 
-class _VideoPlayerPageState extends State<VideoPlayerPage> {
+class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     final AnimeInfo selectedAnime = animeList[widget.animeIndex];

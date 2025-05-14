@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
-import 'screens/video_player_page.dart';
+import 'screens/home_screen.dart';
+import 'screens/video_player_screen.dart';
 
 final routes = {
-  // TODO: Page -> Screen으로 다시 네이밍 필요
-  '/': (BuildContext context) => HomePage(),
-  '/video': (BuildContext context) => VideoPlayerPage()
+  '/': (BuildContext context) => HomeScreen(),
+  '/video': (BuildContext context) => VideoPlayerScreen()
 };

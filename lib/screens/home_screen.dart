@@ -8,8 +8,8 @@ import '../widgets/home/new_video_list.dart';
 import '../widgets/home/hot_video_list.dart';
 import '../widgets/home/event_list.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
