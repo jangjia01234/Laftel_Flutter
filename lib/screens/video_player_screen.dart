@@ -34,6 +34,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           SizedBox(height: 40),
           Stack(
             children: [
+              // TODO: 양 옆으로 파란 배경 뜨는 이슈 수정
               SingleVideoPlayer(),
               Padding(
                   padding: EdgeInsets.all(15),

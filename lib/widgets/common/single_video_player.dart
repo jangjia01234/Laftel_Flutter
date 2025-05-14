@@ -72,10 +72,7 @@ class _SingleVideoPlayerState extends State<SingleVideoPlayer> {
       children: [
         // 메인 영상
         Positioned(
-            child: Container(
-          width: double.infinity,
-          height: 200,
-          color: Colors.blue,
+            child: SizedBox(
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -88,12 +85,12 @@ class _SingleVideoPlayerState extends State<SingleVideoPlayer> {
                   : Container(),
 
               Positioned(
-                  bottom: 0,
+                  top: 0,
                   left: 0,
                   right: 0,
                   child: Container(
-                      width: 100,
-                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
                       color: Colors.black.withOpacity(0.5))),
 
               // 뒤로가기, 재생/정지, 앞으로가기
@@ -140,11 +137,10 @@ class _SingleVideoPlayerState extends State<SingleVideoPlayer> {
           bottom: 0,
           left: 0,
           right: 0,
-          child: Container(
+          child: SizedBox(
             width: 100,
             height: 30,
-            child:
-            Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // 현재 시간
