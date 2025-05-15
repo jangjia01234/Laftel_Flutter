@@ -116,8 +116,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                               padding: EdgeInsets.only(top: 20, bottom: 10),
                               child: Row(
                                 children: [
-                                  Icon(Icons.circle_rounded,
-                                      color: Colors.grey),
+                                  CircleAvatar(radius: 10),
                                   SizedBox(width: 5),
                                   Text("스포일러가 있어요!",
                                       style: TextStyle(color: Colors.grey)),
