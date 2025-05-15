@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/widgets/common/thin_divider.dart';
 
 class BookmarkScreen extends StatelessWidget {
   const BookmarkScreen({super.key});
@@ -6,7 +7,67 @@ class BookmarkScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Text("bookmark screen"),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "보관함",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: Icon(Icons.delete_outline_rounded),
+          )
+        ],
+        backgroundColor: Colors.white,
+      ),
+        body: SizedBox(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+            child: SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ThinDivider(),
+                      Padding(
+                          padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                          child:
+                          // TODO: Tab bar로 변경
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("최근 본"),
+                              Text("보고싶다"),
+                              Text("다운로드"),
+                              Text("구매한"),
+                              Text("정주행"),
+                            ],
+                          )
+                      ),
+                      ThinDivider(),
+                      Padding(
+                          padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              // TODO: 실제 숫자로 교체 필요
+                              Text("작품 (123)")
+                            ],
+                          )
+                      ),
+                      ThinDivider(),
+
+                      for(num i = 0; i < 6; i++)
+                        Column(
+                          children: [
+                            Container(height: 140, color: Colors.black.withOpacity(0.1)),
+                            SizedBox(height: 20),
+                          ],
+                        ),
+                    ]
+                )
+            )
+        )
     );
   }
 }

@@ -58,6 +58,7 @@ class SearchScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text("총 "),
+                                  // TODO: 실제 숫자로 교체 필요
                                   Text("12345", style: TextStyle(fontWeight: FontWeight.bold)),
                                   Text("개의 작품이 검색되었어요!"),
                                 ],
