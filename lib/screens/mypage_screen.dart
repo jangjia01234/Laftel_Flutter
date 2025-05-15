@@ -32,7 +32,7 @@ class MypageScreen extends StatelessWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  // TODO: 버튼으로 변경 + 실제 데이터 반영
+                                  // TODO: 버튼으로 변경, 실제 데이터 반영
                                   Text("니노", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                                   Icon(Icons.chevron_right_rounded, size: 30)
                                 ],
