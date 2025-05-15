@@ -6,7 +6,7 @@ class ThinDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: 20, bottom: 20),
+        padding: EdgeInsets.only(top: 10, bottom: 10),
         child:
         Container(
             width: double.infinity,

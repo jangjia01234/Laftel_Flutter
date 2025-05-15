@@ -5,6 +5,9 @@ class HomeCarouselSlide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(width: double.infinity, height: 350, color: Colors.grey);
+    return Container(
+        width: double.infinity,
+        height: 350,
+        color: Colors.black.withOpacity(0.1));
   }
 }

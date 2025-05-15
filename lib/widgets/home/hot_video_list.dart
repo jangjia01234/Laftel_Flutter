@@ -75,7 +75,7 @@ class RankingScrollView extends StatelessWidget {
 Widget hotSingleVideoThumbnailCard(String rank, String title, String genre) {
   return Row(
     children: [
-      Container(width: 120, height: 80, color: Colors.grey),
+      Container(width: 120, height: 80, color: Colors.black.withOpacity(0.1)),
       Row(
         children: [
           Padding(

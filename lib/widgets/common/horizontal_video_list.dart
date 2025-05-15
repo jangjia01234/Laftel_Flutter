@@ -54,7 +54,7 @@ Widget singleVideoThumbnailCard(String title) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Container(width: 200, height: 120, color: Colors.grey),
+      Container(width: 200, height: 120, color: Colors.black.withOpacity(0.1)),
       Text(title)
     ],
   );

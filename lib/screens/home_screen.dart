@@ -26,7 +26,14 @@ class HomeScreen extends StatelessWidget {
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.5,
-                child: HomeCarouselSlide(),
+                child:
+                // TODO: 현재 임시로 캐러셀에 Navigation 달아둔 상태. 수정 필요
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/video');
+                  },
+                  child: HomeCarouselSlide(),
+                ),
               ),
               Padding(
                   padding: EdgeInsets.all(16.0),

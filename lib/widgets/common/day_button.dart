@@ -6,7 +6,7 @@ Widget dayButton(String day) {
     style: ElevatedButton.styleFrom(
       shape: CircleBorder(),
       padding: EdgeInsets.all(10),
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.black.withOpacity(0.01),
       foregroundColor: Colors.indigoAccent,
     ),
     child: Text(day,
