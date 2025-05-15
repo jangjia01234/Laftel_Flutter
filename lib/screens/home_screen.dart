@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/common/bottom_nav_bar.dart';
 import '../widgets/common/horizontal_video_list.dart';
-
 import '../widgets/home/home_carousel_slide.dart';
 import '../widgets/home/new_video_list.dart';
 import '../widgets/home/hot_video_list.dart';
@@ -57,9 +55,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      // TODO: nav가 아니라, tab 이동으로 변경
-      bottomNavigationBar:
-          const BottomAppBar(color: Colors.white, child: BottomNavBar()),
     );
   }
 }

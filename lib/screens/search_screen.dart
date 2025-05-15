@@ -6,19 +6,18 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () { Navigator.pop(context);},
-                  child: Icon(Icons.close_rounded, color: Colors.black, size: 30),
-                ),
-                Text("search screen"),
-              ],
+        body: SizedBox(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+            child: SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Container(height: 200, color: Colors.red),
+                  ]
+                )
             )
-        ),
-
+        )
     );
   }
 }
