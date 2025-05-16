@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/common/horizontal_video_list.dart';
@@ -14,7 +15,18 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       // TODO: 앱바 삭제하고 stack으로 캐러셀 위에 tools 달아줄 예정 (앱바 배경색 이슈)
       appBar: AppBar(
-        actions: const [Icon(Icons.notifications_outlined), Icon(Icons.search)],
+        centerTitle: true,
+        title: Text(
+          "Laftel",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        actions: const [
+          Icon(Icons.notifications_outlined),
+          Padding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Icon(Icons.search),
+          ),
+        ],
         backgroundColor: Colors.white,
       ),
       body: SizedBox(

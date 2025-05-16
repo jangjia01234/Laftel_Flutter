@@ -22,7 +22,12 @@ class BookmarkScreen extends StatelessWidget {
           backgroundColor: Colors.white,
         ),
         body: Column(children: [
-          ThinDivider(),
+          Container(
+              width: double.infinity,
+              height: 0.4,
+              color: Colors.black.withOpacity(0.15)
+          ),
+          SizedBox(height: 10),
 
           // - MARK: 탭뷰
           Padding(
@@ -53,10 +58,10 @@ class BookmarkScreen extends StatelessWidget {
               )),
           ThinDivider(),
 
+          // - MARK: 세로 스크롤 리스트
           Expanded(
               child: SingleChildScrollView(
                   child: Column(children: [
-            // - MARK: 세로 스크롤 리스트
             for (num i = 0; i < 6; i++)
               Column(
                 children: [
