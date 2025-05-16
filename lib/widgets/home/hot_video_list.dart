@@ -47,6 +47,7 @@ class RankingScrollView extends StatelessWidget {
               ],
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 hotSingleVideoThumbnailCard(
                     "4", "전생했더니 슬라임이었던 건에 대하여", "이세계/판타지"),
@@ -58,6 +59,7 @@ class RankingScrollView extends StatelessWidget {
               ],
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 hotSingleVideoThumbnailCard("7", "하이큐!! 1기", "스포츠"),
                 SizedBox(height: 10),
@@ -71,27 +73,33 @@ class RankingScrollView extends StatelessWidget {
   }
 }
 
-
 Widget hotSingleVideoThumbnailCard(String rank, String title, String genre) {
   return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Container(width: 120, height: 80, color: Colors.black.withOpacity(0.1)),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(4),
+        child: Container(
+            width: 140, height: 80, color: Colors.black.withOpacity(0.1)),
+      ),
       Row(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 5, right: 5),
+            padding: EdgeInsets.only(left: 10, right: 10),
             child: Text(rank,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: TextStyle(fontSize: 12)),
-              Text(genre, style: TextStyle(fontSize: 10, color: Colors.grey))
+              SizedBox(height: 4),
+              Text(title, style: TextStyle(fontSize: 13)),
+              Text(genre, style: TextStyle(fontSize: 11, color: Colors.grey))
             ],
           )
         ],
-      )
+      ),
+      SizedBox(width: 20),
     ],
   );
 }
