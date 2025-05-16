@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
 Widget dayButton(String day) {
-  return ElevatedButton(
-    onPressed: () {},
-    style: ElevatedButton.styleFrom(
-      shape: CircleBorder(),
-      padding: EdgeInsets.all(10),
-      backgroundColor: Colors.black.withOpacity(0.01),
-      foregroundColor: Colors.indigoAccent,
+  return GestureDetector(
+    onTap: () {},
+    child: Stack(
+      alignment: AlignmentDirectional.center,
+      children: [
+        CircleAvatar(
+          backgroundColor: Colors.black.withOpacity(0.2),
+        ),
+        Text(
+          day,
+          style: TextStyle(
+              fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+      ],
     ),
-    child: Text(day,
-        style: TextStyle(
-            fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white)),
   );
 }

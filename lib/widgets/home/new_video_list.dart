@@ -7,6 +7,8 @@ class NewVideoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List days = ["월", "화", "수", "목", "금", "토", "일"];
+
     return
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,21 +39,12 @@ class NewVideoList extends StatelessWidget {
               ]),
               MoreDetailButton()
             ],
-          ),
-          Row(
+        ),
+        Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              dayButton("월"),
-              dayButton("화"),
-              dayButton("수"),
-              dayButton("목"),
-              dayButton("금"),
-              dayButton("토"),
-              dayButton("일"),
-            ],
-          ),
-          // HorizontalScrollList()
-        ],
-      );
+            children: [for (var day in days) dayButton(day)])
+        // HorizontalScrollList()
+      ],
+    );
   }
 }
