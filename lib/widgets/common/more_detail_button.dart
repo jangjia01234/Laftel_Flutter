@@ -6,20 +6,18 @@ class MoreDetailButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-      TextButton(
-          onPressed: () {
-            // action
-          },
+      GestureDetector(
+          onTap: (){},
           child: Row(
             children: [
               Text("더보기",
                   style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey)),
               Icon(
                 Icons.chevron_right_rounded,
-                size: 20,
+                size: 22,
                 color: Colors.grey,
               )
             ],

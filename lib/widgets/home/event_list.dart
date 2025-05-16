@@ -21,11 +21,16 @@ class EventList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              Container(width: 250, height: 80, color: Colors.black.withOpacity(0.1)),
-              SizedBox(width: 10),
-              Container(width: 250, height: 80, color: Colors.black.withOpacity(0.1)),
-              SizedBox(width: 10),
-              Container(width: 250, height: 80, color: Colors.black.withOpacity(0.1)),
+              for (num i = 0; i < 4; i++)
+                Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(4),
+                      child: Container(width: 250, height: 80, color: Colors.black.withOpacity(0.1)),
+                    ),
+                    SizedBox(width: 10),
+                  ],
+                )
             ],
           ),
         )
