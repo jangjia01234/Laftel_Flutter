@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
-
 import '../widgets/common/single_anime_thumbnail_card.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -27,8 +26,7 @@ class SearchScreen extends StatelessWidget {
           Container(
               width: double.infinity,
               height: 0.4,
-              color: Colors.black.withOpacity(0.15)
-          ),
+              color: Colors.black.withOpacity(0.15)),
 
           // - MARK: 필터
           Padding(
@@ -43,39 +41,35 @@ class SearchScreen extends StatelessWidget {
                     onPressed: () {},
                     style: OutlinedButton.styleFrom(
                       minimumSize: Size.zero, // Set this
-                      padding:
-                      EdgeInsets.only(top: 5, right: 10, bottom: 5, left: 10),
+                      padding: EdgeInsets.only(
+                          top: 5, right: 10, bottom: 5, left: 10),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(4))),
-                      side: BorderSide(width: 1.0, color: Colors.black.withOpacity(0.1)),
+                      side: BorderSide(
+                          width: 1.0, color: Colors.black.withOpacity(0.1)),
                     ),
                     child: Row(
                       children: [
                         Icon(
-                            Icons.filter_alt_outlined,
-                            size: 14,
+                          Icons.filter_alt_outlined,
+                          size: 14,
                           color: Colors.black,
                         ),
-                        Text(
-                            "필터",
+                        Text("필터",
                             style: TextStyle(
                                 fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black
-                            )
-                        )
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black))
                       ],
                     ),
                   ),
                 ],
-              )
-          ),
+              )),
 
           Container(
               width: double.infinity,
               height: 0.4,
-              color: Colors.black.withOpacity(0.15)
-          ),
+              color: Colors.black.withOpacity(0.15)),
           SizedBox(height: 10),
 
           // - MARK: 작품 수, 정렬
@@ -89,14 +83,15 @@ class SearchScreen extends StatelessWidget {
                     children: [
                       Text("총 "),
                       // TODO: 실제 숫자로 교체 필요
-                      Text("12345", style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text("12345",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
                       Text("개의 작품이 검색되었어요!"),
                     ],
                   ),
 
                   // TODO: 버튼 스타일 별도로 정의 (컴포넌트화)
                   GestureDetector(
-                    onTap: (){},
+                    onTap: () {},
                     child: Row(
                       children: [
                         Text("인기순"),
@@ -105,8 +100,7 @@ class SearchScreen extends StatelessWidget {
                     ),
                   )
                 ],
-              )
-          ),
+              )),
           ThinDivider(),
 
           SizedBox(height: 10),
@@ -115,21 +109,22 @@ class SearchScreen extends StatelessWidget {
           Expanded(
               child: SingleChildScrollView(
                   child: Column(children: [
-                    for (num i = 0; i < 6; i++)
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              singleAnimeThumbnailCard(150, 80, "title"),
-                              singleAnimeThumbnailCard(150, 80, "title"),
-                            ],
-                          ),
-
-                          SizedBox(height: 20),
-                        ],
-                      ),
-                  ])))
+            for (num i = 0; i < 6; i++)
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SingleAnimeThumbnailCard(
+                          width: 150, height: 80, animeTitle: "검색애니제목1"),
+                      SingleAnimeThumbnailCard(
+                          width: 150, height: 80, animeTitle: "검색애니제목2"),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                ],
+              ),
+          ])))
         ]));
   }
 }

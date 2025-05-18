@@ -6,8 +6,15 @@ import '../widgets/home/new_video_list.dart';
 import '../widgets/home/hot_video_list.dart';
 import '../widgets/home/event_list.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String listTitle = "";
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +56,15 @@ class HomeScreen extends StatelessWidget {
               Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Column(children: [
-                    // TODO: 파라미터로 제목 넘겨주기
                     // TODO: 썸네일 이미지 데이터에서 불러오기
-                    // "최근 본 작품"
-                    HorizontalVideoList(),
+                    HorizontalVideoList(listTitle: "최근 본 작품"),
                     SizedBox(height: 20),
 
                     // FIXME: 요일 버튼 박스 width 넘침 이슈
                     NewVideoList(),
                     SizedBox(height: 20),
 
-                    // "성우 코가 아오이 출연작 모음"
-                    HorizontalVideoList(),
+                    HorizontalVideoList(listTitle: "성우 코가 아오이 출연작 모음"),
                     SizedBox(height: 20),
 
                     HotVideoList(),

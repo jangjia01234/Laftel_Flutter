@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
+import '../widgets/common/single_anime_thumbnail_card.dart';
 
 class BookmarkScreen extends StatelessWidget {
   const BookmarkScreen({super.key});
@@ -25,8 +26,7 @@ class BookmarkScreen extends StatelessWidget {
           Container(
               width: double.infinity,
               height: 0.4,
-              color: Colors.black.withOpacity(0.15)
-          ),
+              color: Colors.black.withOpacity(0.15)),
           SizedBox(height: 10),
 
           // - MARK: 탭뷰
@@ -65,8 +65,16 @@ class BookmarkScreen extends StatelessWidget {
             for (num i = 0; i < 6; i++)
               Column(
                 children: [
-                  Container(height: 140, color: Colors.black.withOpacity(0.1)),
-                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SingleAnimeThumbnailCard(
+                          width: 150, height: 80, animeTitle: "보관애니제목1"),
+                      SingleAnimeThumbnailCard(
+                          width: 150, height: 80, animeTitle: "보관애니제목2"),
+                    ],
+                  ),
+                  SizedBox(height: 20),
                 ],
               ),
           ])))
