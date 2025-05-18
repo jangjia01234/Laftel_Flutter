@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../common/single_anime_thumbnail_card.dart';
 
 class HorizontalVideoList extends StatefulWidget {
   const HorizontalVideoList({super.key});
@@ -35,27 +36,17 @@ class HorizontalScrollList extends StatelessWidget {
         children: [
           Row(
             children: [
-              singleVideoThumbnailCard("제목"),
+              singleAnimeThumbnailCard(200, 120, "제목"),
               SizedBox(width: 20),
-              singleVideoThumbnailCard("제목"),
+              singleAnimeThumbnailCard(200, 120, "제목"),
               SizedBox(width: 20),
-              singleVideoThumbnailCard("제목"),
+              singleAnimeThumbnailCard(200, 120, "제목"),
               SizedBox(width: 20),
-              singleVideoThumbnailCard("제목"),
+              singleAnimeThumbnailCard(200, 120, "제목"),
             ],
           ),
         ],
       ),
     );
   }
-}
-
-Widget singleVideoThumbnailCard(String title) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Container(width: 200, height: 120, color: Colors.black.withOpacity(0.1)),
-      Text(title)
-    ],
-  );
 }

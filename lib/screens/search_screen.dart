@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
 
+import '../widgets/common/single_anime_thumbnail_card.dart';
+
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
@@ -119,8 +121,8 @@ class SearchScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              singleVideoThumbnailCard(150, 80, "title"),
-                              singleVideoThumbnailCard(150, 80, "title"),
+                              singleAnimeThumbnailCard(150, 80, "title"),
+                              singleAnimeThumbnailCard(150, 80, "title"),
                             ],
                           ),
 
@@ -130,14 +132,4 @@ class SearchScreen extends StatelessWidget {
                   ])))
         ]));
   }
-}
-
-Widget singleVideoThumbnailCard(double width, double height, String title) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Container(width: width, height: height, color: Colors.black.withOpacity(0.1)),
-      Text(title)
-    ],
-  );
 }
