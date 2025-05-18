@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: 앱바 삭제하고 stack으로 캐러셀 위에 tools 달아줄 예정 (앱바 배경색 이슈)
+      // TODO: 세로 스크롤에 따라 앱바 배경색이 투명 or 흰색으로 보이도록 해야함
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -60,7 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     HorizontalVideoList(listTitle: "최근 본 작품"),
                     SizedBox(height: 20),
 
-                    // FIXME: 요일 버튼 박스 width 넘침 이슈
                     NewVideoList(),
                     SizedBox(height: 20),
 
