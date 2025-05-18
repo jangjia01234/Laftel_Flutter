@@ -107,6 +107,8 @@ class SearchScreen extends StatelessWidget {
           ),
           ThinDivider(),
 
+          SizedBox(height: 10),
+
           // - MARK: 세로 스크롤 리스트
           Expanded(
               child: SingleChildScrollView(
@@ -114,11 +116,28 @@ class SearchScreen extends StatelessWidget {
                     for (num i = 0; i < 6; i++)
                       Column(
                         children: [
-                          Container(height: 140, color: Colors.black.withOpacity(0.1)),
-                          SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              singleVideoThumbnailCard(150, 80, "title"),
+                              singleVideoThumbnailCard(150, 80, "title"),
+                            ],
+                          ),
+
+                          SizedBox(height: 20),
                         ],
                       ),
                   ])))
         ]));
   }
+}
+
+Widget singleVideoThumbnailCard(double width, double height, String title) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(width: width, height: height, color: Colors.black.withOpacity(0.1)),
+      Text(title)
+    ],
+  );
 }
