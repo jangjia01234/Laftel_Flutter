@@ -33,8 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Icon(Icons.search),
           ),
         ],
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
+      extendBodyBehindAppBar: true,
       body: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
