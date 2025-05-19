@@ -22,7 +22,12 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(width: widget.width, height: widget.height, color: Colors.black.withOpacity(0.1)),
+        ClipRRect(
+          borderRadius:
+          BorderRadius.circular(4),
+          child:
+          Container(width: widget.width, height: widget.height, color: Colors.black.withOpacity(0.1)),
+        ),
         Text("${widget.animeTitle}")
       ],
     );

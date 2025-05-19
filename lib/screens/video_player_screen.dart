@@ -152,6 +152,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
+                                        // TODO: SingleAnimeThumbnailCard 로 교체
                                         // TODO: 이미지 lazy loading 혹은 skeleton 처리 필요
                                         ClipRRect(
                                           borderRadius:
