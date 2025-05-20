@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.6,
                 child:
                 // TODO: 현재 임시로 캐러셀에 Navigation 달아둔 상태. 수정 필요
                 GestureDetector(
