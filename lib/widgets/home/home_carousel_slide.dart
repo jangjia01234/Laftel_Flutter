@@ -44,8 +44,8 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
               viewportFraction: 1.0,
               initialPage: 0,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 4),
-              autoPlayAnimationDuration: Duration(milliseconds: 3000),
+              autoPlayInterval: Duration(seconds: 8),
+              autoPlayAnimationDuration: Duration(milliseconds: 200),
               autoPlayCurve: Curves.fastOutSlowIn,
               enableInfiniteScroll: true,
               onPageChanged: (index, reason) {
