@@ -10,10 +10,10 @@ class HomeCarouselSlide extends StatefulWidget {
 
 class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
   final List<String> imgList = [
-    'img1',
-    'img2',
-    'img3',
-    'img4',
+    'assets/images/home_carousel/carousel_thumbnail_1.jpg',
+    'assets/images/home_carousel/carousel_thumbnail_2.jpg',
+    'assets/images/home_carousel/carousel_thumbnail_3.jpg',
+    'assets/images/home_carousel/carousel_thumbnail_4.jpg',
   ];
   int _current = 0;
   final CarouselController _controller = CarouselController();
@@ -30,12 +30,9 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
               builder: (BuildContext context) {
                 return Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(color: Colors.black.withOpacity(0.6)),
-                    child: Text(
-                      'text $item',
-                      style: TextStyle(fontSize: 16.0),
-                    ));
+                    decoration: BoxDecoration(color: Colors.black.withOpacity(0.65)),
+                    child: Image.asset(item, fit: BoxFit.cover,)
+                );
               },
             );
           }).toList(),

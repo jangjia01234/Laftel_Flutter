@@ -28,10 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         actions: const [
-          Icon(Icons.notifications_outlined),
+          Icon(Icons.notifications_outlined, color: Colors.white),
           Padding(
             padding: EdgeInsets.only(left: 10, right: 10),
-            child: Icon(Icons.search),
+            child: Icon(Icons.search, color: Colors.white),
           ),
         ],
         backgroundColor: Colors.transparent,
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.62,
                 child:
                 // TODO: 현재 임시로 캐러셀에 Navigation 달아둔 상태. 수정 필요
                 GestureDetector(
