@@ -19,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // TODO: 세로 스크롤에 따라 앱바 배경색이 투명 or 흰색으로 보이도록 해야함
-      // FIXME: 세로 스크롤시 모든 화면에서 앱바 배경색이 보라색으로 보이는 이슈가 있음
+      // TODO: 스크롤 내리면 앱바 배경색이 '흰색'으로 보이도록 해야함
+      // FIXME: 스크롤 내리면 앱바 배경색이 '보라색'으로 보이는 이슈가 있음
       appBar: AppBar(
         centerTitle: true,
         title: Text(
