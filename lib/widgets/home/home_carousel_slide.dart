@@ -39,7 +39,7 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
             Stack(
               children: [
                 for (var item in carouselList)
-                  Container(
+                  SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Image.asset(item.backgroundImageUrl, fit: BoxFit.cover)
                   ),
@@ -48,23 +48,9 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
                       child: Align(
                           alignment: Alignment.bottomLeft,
                           child:
-                          // Column(
-                          //   crossAxisAlignment: CrossAxisAlignment.start,
-                          //   children: [
-                          //     Container(
-                          //         width: MediaQuery.of(context).size.width,
-                          //         height: MediaQuery.of(context).size.height / 8,
-                          //         child: Image.asset(title, fit: BoxFit.fitHeight),
-                          //         color: Colors.blue,
-                          //     ),
-                          //     Container(height: 10, color: Colors.red),
-                          //     Text("title",style: TextStyle(color: Colors.white)),
-                          //     Container(height: 10, color: Colors.red),
-                          //   ],
-                          // )
                           Padding(
                             padding: EdgeInsets.only(left: 10, bottom: 50),
-                            child: Container(
+                            child: SizedBox(
                               width: MediaQuery.of(context).size.width / 1.2,
                               child: Image.asset(title.titleImageUrl, fit: BoxFit.fitWidth),
                             ),
