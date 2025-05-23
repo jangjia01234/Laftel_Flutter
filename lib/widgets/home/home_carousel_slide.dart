@@ -21,18 +21,6 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
     return Stack(
       children: [
         CarouselSlider(
-          // items: imgList.map((item) {
-          //   return Builder(
-          //     builder: (BuildContext context) {
-          //       return Container(
-          //           width: MediaQuery.of(context).size.width,
-          //           decoration: BoxDecoration(color: Colors.black.withOpacity(0.65)),
-          //           child: Image.asset(item, fit: BoxFit.cover,)
-          //       );
-          //     },
-          //   );
-          // }).toList(),
-
           // TODO 2: items에서 얘네를 가져와서 Stack 형태로 잘 뿌려줘야 함 (배경-타이틀-텍스트)
           // TODO 3: 현재는 이미지들이 for loop 돌리면서 다 겹쳐버렸는데, 하나씩 나오게 해야 함
           items: [
@@ -45,17 +33,31 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
                   ),
                 for (var title in carouselList)
                   Positioned.fill(
-                      child: Align(
-                          alignment: Alignment.bottomLeft,
-                          child:
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, bottom: 50),
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width / 1.2,
-                              child: Image.asset(title.titleImageUrl, fit: BoxFit.fitWidth),
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child:
+                            Padding(
+                              padding: EdgeInsets.only(left: 10, bottom: 50),
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width / 1.2,
+                                child: Image.asset(title.titleImageUrl, fit: BoxFit.fitWidth),
+                              ),
                             ),
                           ),
-
+                          Align(
+                            alignment: Alignment.bottomLeft,
+                            child:
+                            Padding(
+                              padding: EdgeInsets.only(left: 10, bottom: 30),
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width / 1.2,
+                                child: Text(title.titleText, style: TextStyle(color: Colors.red)),
+                              ),
+                            ),
+                          )
+                        ],
                       )
                   ),
               ],
