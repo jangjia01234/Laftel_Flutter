@@ -35,8 +35,17 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
                       alignment: Alignment.bottomLeft,
                       child: Container(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height/4,
-                        color: Colors.black.withOpacity(0.5),
+                        height: MediaQuery.of(context).size.height/3,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                            colors: [
+                              Colors.black.withOpacity(0.8),
+                              Colors.transparent,
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                     Align(
