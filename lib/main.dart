@@ -17,7 +17,10 @@ void main() async {
   );
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: Colors.red.withOpacity(0.4),
+      // TODO: 상태바 및 하단바 추가 수정 필요
+      //  - 상태바 투명 처리와 동시에 뒤에 body가 비치도록 조치
+      //  - 상태바, 하단Nav바 라이트/다크모드 반영 필요 (라이트일땐 흰색)
+        statusBarColor: Colors.transparent,
     ),
   );
   runApp(const MyApp());
@@ -28,6 +31,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarBrightness: Theme.of(context).brightness,
+      statusBarIconBrightness: Theme.of(context).brightness == Brightness.dark
+          ? Brightness.light
+          : Brightness.dark,
+      systemNavigationBarColor: Theme.of(context).brightness == Brightness.dark
+          ? Colors.black
+          : Colors.white,
+    ));
+
     return ChangeNotifierProvider(
       create: (_) => CounterModel(),
       child: MaterialApp(
@@ -36,7 +49,6 @@ class MyApp extends StatelessWidget {
         // 디버그 표시 끄기
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            brightness: Brightness.light,
             primaryColor: Colors.indigoAccent,
             scaffoldBackgroundColor: Colors.white
         ),
