@@ -12,7 +12,7 @@ class EventList extends StatelessWidget {
         Row(
           children: [
             Text("진행 중인 이벤트",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
             SizedBox(width: 10),
             MoreDetailButton()
           ],

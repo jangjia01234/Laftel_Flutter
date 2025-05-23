@@ -24,7 +24,7 @@ class _HorizontalVideoListState extends State<HorizontalVideoList> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("${widget.listTitle}",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(

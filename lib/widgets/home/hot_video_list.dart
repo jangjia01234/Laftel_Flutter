@@ -10,7 +10,7 @@ class HotVideoList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("라프텔 인기 애니",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
         Row(
           children: [
             timeUnitButton("실시간"),

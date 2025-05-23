@@ -56,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: HomeCarouselSlide(),
                 ),
               ),
+              SizedBox(height: 10),
               Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Column(children: [

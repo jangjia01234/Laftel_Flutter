@@ -18,7 +18,7 @@ class NewVideoList extends StatelessWidget {
             children: [
               Row(children: [
                 Text("요일별 신작",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
                 SizedBox(width: 10),
                 OutlinedButton(
                   onPressed: () {},
