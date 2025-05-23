@@ -21,48 +21,51 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
     return Stack(
       children: [
         CarouselSlider(
-          // TODO 2: items에서 얘네를 가져와서 Stack 형태로 잘 뿌려줘야 함 (배경-타이틀-텍스트)
-          // TODO 3: 현재는 이미지들이 for loop 돌리면서 다 겹쳐버렸는데, 하나씩 나오게 해야 함
-          items: [
-            Stack(
+          items: carouselList.map((item) {
+            return Stack(
               children: [
-                for (var item in carouselList)
-                  SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      child: Image.asset(item.backgroundImageUrl, fit: BoxFit.cover)
-                  ),
-                for (var title in carouselList)
-                  Positioned.fill(
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child:
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, bottom: 50),
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width / 1.2,
-                                child: Image.asset(title.titleImageUrl, fit: BoxFit.fitWidth),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child:
-                            Padding(
-                              padding: EdgeInsets.only(left: 10, bottom: 30),
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width / 1.2,
-                                child: Text(title.titleText, style: TextStyle(color: Colors.red)),
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                  ),
+                SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Image.asset(item.backgroundImageUrl,
+                        fit: BoxFit.cover)),
+                Positioned.fill(
+                    child: Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height/4,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 55),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.2,
+                          child: Image.asset(item.titleImageUrl,
+                              fit: BoxFit.fitWidth),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10, bottom: 35),
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width / 1.2,
+                          child: Text(item.titleText,
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
               ],
-            )
-          ],
+            );
+          }).toList(),
           options: CarouselOptions(
               height: screenHeight,
               viewportFraction: 1.0,
@@ -78,7 +81,8 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
                 });
               }),
         ),
-        Positioned.fill(child: Align(
+        Positioned.fill(
+            child: Align(
           alignment: Alignment.bottomCenter,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -92,8 +96,8 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: (Theme.of(context).brightness == Brightness.light
-                        ? Colors.white
-                        : Colors.black)
+                            ? Colors.white
+                            : Colors.black)
                         .withOpacity(_current == entry.key ? 0.9 : 0.6),
                   ),
                 ),
