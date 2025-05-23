@@ -12,11 +12,12 @@ void main() async {
     SystemUiMode.manual,
     overlays: [
       SystemUiOverlay.top,
+      SystemUiOverlay.bottom,
     ],
   );
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
+      statusBarColor: Colors.red.withOpacity(0.4),
     ),
   );
   runApp(const MyApp());
