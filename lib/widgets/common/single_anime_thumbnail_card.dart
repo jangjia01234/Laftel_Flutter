@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 class SingleAnimeThumbnailCard extends StatefulWidget {
   const SingleAnimeThumbnailCard({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.animeTitle,
-  }) : super(key: key);
+    this.thumbnailImage,
+  });
 
   final double? width;
   final double? height;
   final String? animeTitle;
+  final String? thumbnailImage;
 
   @override
   State<SingleAnimeThumbnailCard> createState() => _SingleAnimeThumbnailCardState();
@@ -22,13 +24,33 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClipRRect(
-          borderRadius:
-          BorderRadius.circular(4),
-          child:
-          Container(width: widget.width, height: widget.height, color: Colors.black.withOpacity(0.1)),
+        SizedBox(
+          width: widget.width,
+          height: widget.height,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child:
+                Image.asset('assets/images/home_carousel/carousel_thumbnail_title_1.png'),
+                // Image.network("${widget.thumbnailImage}"),
+              ),
+              SizedBox(height: 10),
+              RichText(
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                text: TextSpan(
+                    text: widget.animeTitle,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                    )),
+              ),
+            ],
+          ),
         ),
-        Text("${widget.animeTitle}")
+
       ],
     );
   }

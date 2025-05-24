@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/data/anime_data.dart';
 import '../common/single_anime_thumbnail_card.dart';
 
 class HorizontalVideoList extends StatefulWidget {
@@ -17,6 +18,7 @@ class _HorizontalVideoListState extends State<HorizontalVideoList> {
   double width = 0;
   double height = 0;
   String animeTitle = "";
+  String thumbnailImage = "";
 
   @override
   Widget build(BuildContext context) {
@@ -28,23 +30,26 @@ class _HorizontalVideoListState extends State<HorizontalVideoList> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              for (num i = 0; i < 4; i++)
-                Row(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SingleAnimeThumbnailCard(
-                            width: 200, height: 120, animeTitle: "애니제목"),
-                        SizedBox(width: 20),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                  ],
-                ),
-            ],
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: animeList.map((item) {
+              return Row(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SingleAnimeThumbnailCard(
+                          width: 200,
+                          height: 120,
+                          animeTitle: item.animeTitle,
+                          thumbnailImage: item.thumbnailImageUrl
+                      ),
+                      SizedBox(width: 20),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                ],
+              );
+            }).toList(),
           ),
         ),
       ],
