@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/common/horizontal_video_list.dart';
 import '../widgets/home/home_carousel_slide.dart';
+import '../widgets/home/recent_video_list.dart';
 import '../widgets/home/new_video_list.dart';
 import '../widgets/home/hot_video_list.dart';
 import '../widgets/home/event_list.dart';
@@ -53,8 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Column(children: [
-                    // TODO: 썸네일 이미지 데이터에서 불러오기
-                    HorizontalVideoList(listTitle: "최근 본 작품"),
+                    RecentVideoList(),
                     SizedBox(height: 20),
 
                     NewVideoList(),

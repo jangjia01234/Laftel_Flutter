@@ -52,9 +52,6 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
                         fontSize: 12,
                       )),
                 ),
-                // TODO: 실제 데이터로 교체 (데이터 구조 수정 - 최근 시청한 회차 저장)
-                Text("0화",
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600))
               ],
             ),
           ),
