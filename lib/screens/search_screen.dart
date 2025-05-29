@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/data/anime_data.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
 import '../widgets/common/single_anime_thumbnail_card.dart';
 
@@ -108,23 +109,30 @@ class SearchScreen extends StatelessWidget {
           // - MARK: 세로 스크롤 리스트
           Expanded(
               child: SingleChildScrollView(
-                  child: Column(children: [
-            for (num i = 0; i < 6; i++)
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SingleAnimeThumbnailCard(
-                          width: 150, height: 80, animeTitle: "검색애니제목1"),
-                      SingleAnimeThumbnailCard(
-                          width: 150, height: 80, animeTitle: "검색애니제목2"),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                ],
+                  child: Row(children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // 1 개의 한 행에 보여줄 개수
+                  childAspectRatio: 1 / 1, // item 의 가로, 세로 비율
+                  mainAxisSpacing: 0, // 수평 Padding
+                  crossAxisSpacing: 0, // 수직 Padding
+                ),
+                itemCount: animeList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Center(
+                    child: SingleAnimeThumbnailCard(
+                        width: 150,
+                        height: 80,
+                        animeTitle: animeList[index].animeTitle,
+                        thumbnailImage: animeList[index].thumbnailImageUrl),
+                  );
+                },
               ),
-          ])))
+            ),
+          ]))),
         ]));
   }
 }

@@ -24,6 +24,7 @@ class HotVideoList extends StatelessWidget {
           ],
         ),
         RankingScrollView(),
+        SizedBox(height: 20),
       ],
     );
   }
