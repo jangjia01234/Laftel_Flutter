@@ -1,9 +1,11 @@
 class AnimeInfo {
   final String animeTitle;
+  final int rank;
   final String thumbnailImageUrl;
   final List<Episode> episodes;
 
   AnimeInfo({
+      required this.rank,
       required this.animeTitle,
       required this.thumbnailImageUrl,
       required this.episodes
