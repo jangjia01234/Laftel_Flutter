@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/data/anime_data.dart';
 import 'time_unit_button.dart';
 
 class HotVideoList extends StatelessWidget {
@@ -36,40 +37,26 @@ class RankingScrollView extends StatelessWidget {
     return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
-          children: [
-            Column(
-              children: [
-                hotSingleVideoThumbnailCard("1", "주술회전 1기 part 1", "판타지/액션"),
-                SizedBox(height: 10),
-                hotSingleVideoThumbnailCard("2", "주술회전 2기 part 2", "판타지/액션"),
-                SizedBox(height: 10),
-                hotSingleVideoThumbnailCard("3", "(무삭제) 귀멸의 칼날", "판타지/액션"),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                hotSingleVideoThumbnailCard(
-                    "4", "전생했더니 슬라임이었던 건에 대하여", "이세계/판타지"),
-                SizedBox(height: 10),
-                hotSingleVideoThumbnailCard("5", "(더빙) 꿈빛 파티시엘 리마스터", "로맨스/음식"),
-                SizedBox(height: 10),
-                hotSingleVideoThumbnailCard(
-                    "6", "(자막) 귀멸의 칼날: 환락의 거리편", "판타지/액션"),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                hotSingleVideoThumbnailCard("7", "하이큐!! 1기", "스포츠"),
-                SizedBox(height: 10),
-                hotSingleVideoThumbnailCard("8", "(자막) 하이큐!! 2기", "스포츠"),
-                SizedBox(height: 10),
-                hotSingleVideoThumbnailCard("9", "(자막) 데스노트 리마스터", "판타지/추리"),
-              ],
-            )
-          ],
-        ));
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Column(
+            children: animeList.map((item) {
+              return Column(
+                children: [
+                  Row(
+                    children: [
+                      hotSingleVideoThumbnailCard(item.rank, item.animeTitle, item.genre),
+                      hotSingleVideoThumbnailCard(item.rank, item.animeTitle, item.genre),
+                      hotSingleVideoThumbnailCard(item.rank, item.animeTitle, item.genre),
+                    ],
+                  )
+                ],
+              );
+            }).toList(),
+          ),
+        ]
+      ),
+    );
   }
 }
 

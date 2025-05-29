@@ -3,7 +3,8 @@ import '../models/anime_info_model.dart';
 final List<AnimeInfo> animeList = [
   AnimeInfo(
       animeTitle: '호리미야',
-      rank: 3,
+      genre: '드라마·로맨스',
+      rank: "3",
       thumbnailImageUrl:
           'https://thumbnail.laftel.net/items/home/3837a308-4746-470a-8fd0-091f43f55992.jpg?c=0%2C0%2C1024%2C576&webp=1&w=380',
       episodes: [
@@ -34,7 +35,8 @@ final List<AnimeInfo> animeList = [
       ]),
   AnimeInfo(
       animeTitle: '위치 워치',
-      rank: 1,
+      genre: '개그·로맨스',
+      rank: "1",
       thumbnailImageUrl:
           'https://thumbnail.laftel.net/items/full/0f44158b-1e31-4380-b0b4-86ff5ca716c3.jpg?c=0%2C278%2C1024%2C854&webp=1&w=380',
       episodes: [
@@ -59,7 +61,8 @@ final List<AnimeInfo> animeList = [
       ]),
   AnimeInfo(
       animeTitle: '도쿄 구울',
-      rank: 2,
+      genre: '판타지·액션',
+      rank: "2",
       thumbnailImageUrl:
           'https://thumbnail.laftel.net/items/home/0ee6d66f-e714-4057-b051-c20c36329b59.jpg?c=0%2C0%2C1023%2C575&webp=1&w=380',
       episodes: [
