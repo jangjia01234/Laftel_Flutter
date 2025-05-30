@@ -12,7 +12,8 @@ final List<AnimeInfo> animeList = [
           title: '1화 아주 사소한 계기로',
           summary:
               '미인에다 성적도 우수해서 인기가 많은 여학생 호리 쿄코와 음침하고 외모도 평범한 미야무라 이즈미. 전혀 접점이 없을 것 같았던 두 사람은 우연한 계기로 남에게 보여줄 수 없는 모습을 공유하는 사이가 되는데.',
-          thumbnailImageUrl: 'https://thumbnail.laftel.net/assets/2021/02/44875/v15/Thumbnail.0000057.jpg',
+          // thumbnailImageUrl: 'https://thumbnail.laftel.net/assets/2021/02/44875/v15/Thumbnail.0000057.jpg',
+          thumbnailImageUrl: 'https://thumbnail.laftel.net/assets/2021/01/44538/v15/Thumbnail.0000057.jpg',
         ),
         Episode(
           title: '2화 얼굴은 하나만이 아니다',
