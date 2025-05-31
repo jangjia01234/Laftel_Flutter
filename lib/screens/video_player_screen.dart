@@ -155,42 +155,28 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                                       children: [
                                         // TODO: SingleAnimeThumbnailCard 로 교체
                                         // TODO: 이미지 lazy loading 혹은 skeleton 처리 필요
-                                        SingleAnimeThumbnailCard(
-                                          width: 140,
-                                          height: 100,
-                                          // FIXME: 썸네일 이미지 반영 오류
-                                          // animeTitle: selectedAnime
-                                          //     .episodes[index].title
-                                          //     .insertZwj(),
-                                          animeTitle: "${selectedAnime
-                                              .episodes[index].thumbnailImageUrl}",
-                                          thumbnailImage: selectedAnime
-                                              .episodes[index]
-                                              .thumbnailImageUrl,
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(4),
+                                          child:
+                                              Image.network(selectedAnime
+                                                  .episodes[index]
+                                                  .thumbnailImageUrl),
                                         ),
-
-                                        // ClipRRect(
-                                        //   borderRadius:
-                                        //       BorderRadius.circular(4),
-                                        //   child:
-                                        //       Image.network(selectedAnime
-                                        //           .episodes[index]
-                                        //           .thumbnailImageUrl),
-                                        // ),
-                                        // SizedBox(height: 10),
-                                        // // MARK: (긴 제목 에피소드 대비) 말줄임표 처리
-                                        // RichText(
-                                        //   overflow: TextOverflow.ellipsis,
-                                        //   maxLines: 2,
-                                        //   text: TextSpan(
-                                        //       text: selectedAnime
-                                        //           .episodes[index].title
-                                        //           .insertZwj(),
-                                        //       style: TextStyle(
-                                        //         color: Colors.black,
-                                        //         fontSize: 12,
-                                        //       )),
-                                        // ),
+                                        SizedBox(height: 10),
+                                        // MARK: (긴 제목 에피소드 대비) 말줄임표 처리
+                                        RichText(
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          text: TextSpan(
+                                              text: selectedAnime
+                                                  .episodes[index].title
+                                                  .insertZwj(),
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 12,
+                                              )),
+                                        ),
                                       ],
                                     ),
                                   ),
