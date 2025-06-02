@@ -45,6 +45,7 @@ class RankingScrollView extends StatelessWidget {
         height: 300,
         child: ScrollConfiguration(
             behavior: AppScrollBehavior(),
+            // TODO: 조건(역대, 분기 등)에 따른 개수 제한 구현 (ex. 역대~30위, 분기~12위)
             child: GridView(
                 scrollDirection: Axis.horizontal,
                 physics: PageScrollPhysics(),
