@@ -116,8 +116,7 @@ class SearchScreen extends StatelessWidget {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // 1 개의 한 행에 보여줄 개수
-                  // TODO: 비율 세로폭 줄이는 방향으로 수정
-                  childAspectRatio: 1 / 1, // item 의 가로, 세로 비율
+                  childAspectRatio: 1 / 0.8, // item 의 가로, 세로 비율
                   mainAxisSpacing: 0, // 수평 Padding
                   crossAxisSpacing: 0, // 수직 Padding
                 ),

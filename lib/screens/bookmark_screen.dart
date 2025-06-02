@@ -70,7 +70,7 @@ class BookmarkScreen extends StatelessWidget {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // 1 개의 한 행에 보여줄 개수
-                  childAspectRatio: 1 / 1, // item 의 가로, 세로 비율
+                  childAspectRatio: 1 / 0.8, // item 의 가로, 세로 비율
                   mainAxisSpacing: 0, // 수평 Padding
                   crossAxisSpacing: 0, // 수직 Padding
                 ),
