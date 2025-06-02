@@ -40,8 +40,8 @@ class _EventScreenState extends State<EventScreen> {
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            childAspectRatio: 1 / 1,
-                            mainAxisSpacing: 20,
+                            childAspectRatio: 1 / 1.1,
+                            mainAxisSpacing: 18,
                             crossAxisSpacing: 10,
                           ),
                           itemCount: eventList.length,
