@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:layout/data/anime_data.dart';
 import 'time_unit_button.dart';
@@ -35,36 +37,65 @@ class RankingScrollView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // MARK: 인기순 정렬
     animeList.sort((a, b) => a.rank.compareTo(b.rank));
 
-    return SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: animeList.map((item) {
-              return Column(
-                children: [
-                  Row(
-                    children: [
-                      // TODO: 3개씩 보이도록 자르기
-                      hotSingleVideoThumbnailCard(item.thumbnailImageUrl, item.rank, item.animeTitle, item.genre),
-                      hotSingleVideoThumbnailCard(item.thumbnailImageUrl, item.rank, item.animeTitle, item.genre),
-                      hotSingleVideoThumbnailCard(item.thumbnailImageUrl, item.rank, item.animeTitle, item.genre),
-                    ],
+    return SizedBox(
+        width: double.infinity,
+        height: 300,
+        child: ScrollConfiguration(
+            behavior: AppScrollBehavior(),
+            child: GridView(
+                scrollDirection: Axis.horizontal,
+                physics: PageScrollPhysics(),
+                gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisSpacing: 2.0,
+                    crossAxisSpacing: 2.0,
+                    crossAxisCount: 3,
+                    childAspectRatio: 0.35
                   ),
-                ],
-              );
-            }).toList(),
-          ),
-        ]
-      ),
+                children: animeList.map((item) => ItemWidget(
+                          imageUrl: item.thumbnailImageUrl,
+                          rank: item.rank,
+                          title: item.animeTitle,
+                          genre: item.genre,
+                        )).toList()
+            )
+        )
     );
   }
 }
 
-Widget hotSingleVideoThumbnailCard(String imageUrl, String rank, String title, String genre) {
+class ItemWidget extends StatelessWidget {
+  const ItemWidget(
+      {super.key,
+      required this.imageUrl,
+      required this.rank,
+      required this.title,
+      required this.genre});
+
+  final String imageUrl;
+  final String rank;
+  final String title;
+  final String genre;
+
+  @override
+  Widget build(BuildContext context) {
+    return hotSingleVideoThumbnailCard(imageUrl, rank, title, genre);
+  }
+}
+
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+}
+
+Widget hotSingleVideoThumbnailCard(
+    String imageUrl, String rank, String title, String genre) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
