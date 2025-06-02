@@ -19,7 +19,12 @@ class EventList extends StatelessWidget {
             Text("진행 중인 이벤트",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
             SizedBox(width: 10),
-            MoreDetailButton()
+            GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/events");
+                },
+                child: MoreDetailButton()
+            )
           ],
         ),
         SingleChildScrollView(
