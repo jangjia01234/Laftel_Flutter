@@ -25,14 +25,15 @@ class EventList extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-              children: openingEventList.map((item) {
-            return Row(
-              children: [
-                Image.network(item.bannerThumbnailImageUrl!, width: 250),
-                SizedBox(width: 10),
-              ],
-            );
-          }).toList()),
+            children: openingEventList.map((item) {
+                return Row(
+                  children: [
+                    Image.network(item.bannerThumbnailImageUrl!, width: 250),
+                    SizedBox(width: 10),
+                  ],
+                );
+              }).toList()
+          ),
         )
       ],
     );

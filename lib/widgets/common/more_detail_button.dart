@@ -7,7 +7,9 @@ class MoreDetailButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
       GestureDetector(
-          onTap: (){},
+          onTap: () {
+            Navigator.pushNamed(context, "/events");
+          },
           child: Row(
             children: [
               Text("더보기",
