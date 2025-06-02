@@ -5,7 +5,7 @@ class EventInfoModel {
   final String eventPageUrl;
   final String titleText;
   final bool isOpened;
-  // TODO: 이벤트 기간 추가
+  final String? duration;
 
   EventInfoModel({
     this.bannerThumbnailImageUrl,
@@ -14,5 +14,6 @@ class EventInfoModel {
     required this.eventPageUrl,
     required this.titleText,
     required this.isOpened,
+    this.duration,
   });
 }
