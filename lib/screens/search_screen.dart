@@ -33,7 +33,7 @@ class _SearchScreenState extends State<SearchScreen> {
     super.initState();
 
     // TODO: 테스트용 -> 전체 검색결과로 변경
-    fetchSearch('케로로');
+    fetchSearch('all');
   }
 
   @override
@@ -136,6 +136,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
           SizedBox(height: 10),
 
+          // TODO: 스크롤 제한 걸리는 문제 해결 (데이터 수에 비해 적게 표시됨)
           // - MARK: 세로 스크롤 리스트
           Expanded(
               child: SingleChildScrollView(
