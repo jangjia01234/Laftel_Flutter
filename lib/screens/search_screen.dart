@@ -1,10 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:layout/data/anime_data.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import '../widgets/common/single_anime_thumbnail_card.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  List<dynamic> results = [];
+
+  Future<void> fetchSearch(String query) async {
+    final url = Uri.parse('http://10.0.2.2:5000/search/$query');
+    final resp = await http.get(url);
+    if (resp.statusCode == 200) {
+      setState(() {
+        results = json.decode(resp.body);
+      });
+    } else {
+      throw Exception('서버 호출 실패');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    // TODO: 테스트용 -> 전체 검색결과로 변경
+    fetchSearch('케로로');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,29 +140,29 @@ class SearchScreen extends StatelessWidget {
           Expanded(
               child: SingleChildScrollView(
                   child: Row(children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // 1 개의 한 행에 보여줄 개수
-                  childAspectRatio: 1 / 0.8, // item 의 가로, 세로 비율
-                  mainAxisSpacing: 0, // 수평 Padding
-                  crossAxisSpacing: 0, // 수직 Padding
-                ),
-                itemCount: animeList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Center(
-                    child: SingleAnimeThumbnailCard(
-                        width: 150,
-                        height: 80,
-                        animeTitle: animeList[index].animeTitle,
-                        thumbnailImage: animeList[index].thumbnailImageUrl),
-                  );
-                },
-              ),
-            ),
-          ]))),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2, // 1 개의 한 행에 보여줄 개수
+                          childAspectRatio: 1 / 0.8, // item 의 가로, 세로 비율
+                          mainAxisSpacing: 0, // 수평 Padding
+                          crossAxisSpacing: 0, // 수직 Padding
+                        ),
+                        itemCount: results.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Center(
+                            child: SingleAnimeThumbnailCard(
+                                width: 150,
+                                height: 80,
+                                animeTitle: results[index]['name'],
+                                thumbnailImage: results[index]['image']),
+                          );
+                        },
+                      ),
+                    ),
+                  ]))),
         ]));
   }
 }

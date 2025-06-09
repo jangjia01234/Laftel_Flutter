@@ -32,14 +32,18 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
           },
           child: SizedBox(
             width: widget.width,
-            height: widget.height! * 1.4,
+            height: widget.height! * 1.6,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // TODO: 최근 본 작품은 별도로 썸네일 위에 플레이한 지점(하단바) 추가
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(4),
-                  child: Image.network("${widget.thumbnailImage}"),
+                SizedBox(
+                  width: widget.width,
+                  height: widget.height,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(4),
+                    child: Image.network("${widget.thumbnailImage}", fit: BoxFit.cover,),
+                  ),
                 ),
                 SizedBox(height: 4),
                 RichText(
