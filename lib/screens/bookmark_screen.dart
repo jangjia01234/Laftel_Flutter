@@ -79,7 +79,8 @@ class BookmarkScreen extends StatelessWidget {
                   return Center(
                     child: SingleAnimeThumbnailCard(
                         width: 150,
-                        height: 80,
+                        imageHeight: 80,
+                        cardHeight: 120,
                         animeTitle: animeList[index].animeTitle,
                         thumbnailImage: animeList[index].thumbnailImageUrl),
                   );

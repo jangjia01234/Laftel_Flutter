@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:layout/data/anime_data.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -114,7 +113,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     children: [
                       Text("총 "),
                       // TODO: 실제 숫자로 교체 필요
-                      Text("12345",
+                      Text("${results.length}",
                           style: TextStyle(fontWeight: FontWeight.bold)),
                       Text("개의 작품이 검색되었어요!"),
                     ],
@@ -140,7 +139,7 @@ class _SearchScreenState extends State<SearchScreen> {
           // - MARK: 세로 스크롤 리스트
           Expanded(
               child: SingleChildScrollView(
-                  child: Row(children: [
+                  child: Column(children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
@@ -154,16 +153,23 @@ class _SearchScreenState extends State<SearchScreen> {
                         itemCount: results.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Center(
-                            child: SingleAnimeThumbnailCard(
-                                width: 150,
-                                height: 80,
-                                animeTitle: results[index]['name'],
-                                thumbnailImage: results[index]['image']),
+                            child: Container(
+                              color: Colors.red,
+                              child: SingleAnimeThumbnailCard(
+                                  width: 150,
+                                  imageHeight: 80,
+                                  cardHeight: 120,
+                                  animeTitle: results[index]['name'],
+                                  thumbnailImage: results[index]['image']
+                              ),
+                            ),
                           );
                         },
                       ),
                     ),
-                  ]))),
+                    Container(color: Colors.green, height: 100),
+                  ]
+                  ))),
         ]));
   }
 }

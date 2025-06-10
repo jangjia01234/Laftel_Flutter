@@ -4,13 +4,15 @@ class SingleAnimeThumbnailCard extends StatefulWidget {
   const SingleAnimeThumbnailCard({
     super.key,
     this.width,
-    this.height,
+    this.imageHeight,
+    this.cardHeight,
     this.animeTitle,
     this.thumbnailImage,
   });
 
   final double? width;
-  final double? height;
+  final double? imageHeight;
+  final double? cardHeight;
   final String? animeTitle;
   final String? thumbnailImage;
 
@@ -30,19 +32,23 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
           onTap: () {
             Navigator.pushNamed(context, '/video');
           },
-          child: SizedBox(
+          child:
+          Container(
+          color: Colors.blue,
+          child:
+          SizedBox(
             width: widget.width,
-            height: widget.height! * 1.6,
+            height: widget.cardHeight,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // TODO: 최근 본 작품은 별도로 썸네일 위에 플레이한 지점(하단바) 추가
                 SizedBox(
                   width: widget.width,
-                  height: widget.height,
+                  height: widget.imageHeight,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(4),
-                    child: Image.network("${widget.thumbnailImage}", fit: BoxFit.cover,),
+                    child: Image.network("${widget.thumbnailImage}", fit: BoxFit.cover),
                   ),
                 ),
                 SizedBox(height: 4),
@@ -59,6 +65,7 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
               ],
             ),
           ),
+          )
         )
       ],
     );

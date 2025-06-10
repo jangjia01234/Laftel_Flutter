@@ -41,7 +41,8 @@ class _HorizontalVideoListState extends State<HorizontalVideoList> {
                     children: [
                       SingleAnimeThumbnailCard(
                           width: 200,
-                          height: 120,
+                          imageHeight: 100,
+                          cardHeight: 140,
                           animeTitle: item.animeTitle,
                           thumbnailImage: item.thumbnailImageUrl),
                       SizedBox(width: 20),
