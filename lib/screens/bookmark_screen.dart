@@ -37,6 +37,9 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // MARK: 이름순 정렬
+    results.sort((a, b) => a['name'].compareTo(b['name']));
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

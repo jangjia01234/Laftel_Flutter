@@ -92,8 +92,8 @@ class _RankingScrollViewState extends State<RankingScrollView> {
 
   @override
   Widget build(BuildContext context) {
-    // MARK: 인기순 정렬
-    results.sort((a, b) => a.rank.compareTo(b.rank));
+    // MARK: 이름순 정렬
+    results.sort((a, b) => a['name'].compareTo(b['name']));
 
     return SizedBox(
         width: double.infinity,
@@ -113,9 +113,10 @@ class _RankingScrollViewState extends State<RankingScrollView> {
                 ),
                 children: results.map((item) => ItemWidget(
                   imageUrl: item['image'],
-                  rank: item['content_rating'],
+                  // TODO: 순위 관련 데이터가 없으므로 다른 값으로 대체
+                  rank: item['id'],
                   title: item['name'],
-                  genre: item['url'],
+                  genre: item['url'].toString(),
                 )).toList()
             )
         )
