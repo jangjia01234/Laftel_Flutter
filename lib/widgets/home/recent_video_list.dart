@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../data/anime_data.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import '../common/single_anime_thumbnail_card.dart';
 
 class RecentVideoList extends StatefulWidget {
@@ -10,6 +12,28 @@ class RecentVideoList extends StatefulWidget {
 }
 
 class _RecentVideoListState extends State<RecentVideoList> {
+  List<dynamic> results = [];
+
+  Future<void> fetchSearch(String query) async {
+    final url = Uri.parse('http://10.0.2.2:5000/search/$query');
+    final resp = await http.get(url);
+    if (resp.statusCode == 200) {
+      setState(() {
+        results = json.decode(resp.body);
+      });
+    } else {
+      throw Exception('서버 호출 실패');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    // TODO: 테스트용 -> 전체 검색결과로 변경
+    fetchSearch('문호 스트레이독스');
+  }
+
   double width = 0;
   double height = 0;
   String animeTitle = "";
@@ -28,7 +52,7 @@ class _RecentVideoListState extends State<RecentVideoList> {
           scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: animeList.map((item) {
+            children: results.map((item) {
               return
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,9 +65,9 @@ class _RecentVideoListState extends State<RecentVideoList> {
                             SingleAnimeThumbnailCard(
                                 width: 200,
                                 imageHeight: 100,
-                                cardHeight: 130,
-                                animeTitle: item.animeTitle,
-                                thumbnailImage: item.thumbnailImageUrl),
+                                cardHeight: 140,
+                                animeTitle: item['name'],
+                                thumbnailImage: item['image']),
                             SizedBox(width: 20),
                           ],
                         ),

@@ -5,8 +5,6 @@ import '../data/anime_data.dart';
 
 import '../widgets/common/single_video_player.dart';
 import '../widgets/common/thin_divider.dart';
-import '../widgets/common/single_anime_thumbnail_card.dart';
-
 import '../utils/string_extension.dart';
 
 class VideoPlayerScreen extends StatefulWidget {

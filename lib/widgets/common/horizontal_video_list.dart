@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:layout/data/anime_data.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import '../common/single_anime_thumbnail_card.dart';
 
 class HorizontalVideoList extends StatefulWidget {
@@ -15,6 +17,28 @@ class HorizontalVideoList extends StatefulWidget {
 }
 
 class _HorizontalVideoListState extends State<HorizontalVideoList> {
+  List<dynamic> results = [];
+
+  Future<void> fetchSearch(String query) async {
+    final url = Uri.parse('http://10.0.2.2:5000/search/$query');
+    final resp = await http.get(url);
+    if (resp.statusCode == 200) {
+      setState(() {
+        results = json.decode(resp.body);
+      });
+    } else {
+      throw Exception('서버 호출 실패');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    // TODO: 테스트용 -> 전체 검색결과로 변경
+    fetchSearch('all');
+  }
+
   double width = 0;
   double height = 0;
   String animeTitle = "";
@@ -33,7 +57,7 @@ class _HorizontalVideoListState extends State<HorizontalVideoList> {
           scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: animeList.map((item) {
+            children: results.map((item) {
               return Row(
                 children: [
                   Row(
