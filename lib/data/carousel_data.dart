@@ -16,9 +16,4 @@ final List<CarouselInfoModel> carouselList = [
     titleImageUrl: 'assets/images/home_carousel/carousel_thumbnail_title_3.png',
     titleText: '기적의 진통제, 부작용은 「죽음」',
   ),
-  CarouselInfoModel(
-    backgroundImageUrl: 'assets/images/home_carousel/carousel_thumbnail_4.jpg',
-    titleImageUrl: 'assets/images/home_carousel/carousel_thumbnail_title_4.png',
-    titleText: '비합법 히어로 ‘비질랜티’가 간다!',
-  ),
 ];
