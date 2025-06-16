@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MypageScreen extends StatelessWidget {
   const MypageScreen({super.key});
@@ -226,9 +227,7 @@ class MypageScreen extends StatelessWidget {
                       child:
                       // TODO: List 컴포넌트 있는지 확인 후 대체
                       GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, "/events");
-                          },
+                          onTap: () => context.go('/events'),
                           child:
                           Container(
                             color: Colors.transparent,

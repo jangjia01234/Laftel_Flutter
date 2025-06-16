@@ -43,9 +43,9 @@ class MyApp extends StatelessWidget {
 
     return ChangeNotifierProvider(
       create: (_) => CounterModel(),
-      child: MaterialApp(
+      child: MaterialApp.router(
         // 라우터 연결
-        routes: routes,
+        routerConfig: router,
         // 디버그 표시 끄기
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

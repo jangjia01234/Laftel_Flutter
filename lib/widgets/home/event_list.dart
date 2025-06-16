@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../common/more_detail_button.dart';
 import '../../data/event_data.dart';
 
@@ -20,9 +21,7 @@ class EventList extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
             SizedBox(width: 10),
             GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, "/events");
-                },
+                onTap: () => context.go('/events'),
                 child: MoreDetailButton()
             )
           ],

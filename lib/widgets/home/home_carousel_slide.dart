@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../data/carousel_data.dart';
 
@@ -97,7 +98,9 @@ class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: carouselList.asMap().entries.map((entry) {
               return GestureDetector(
-                onTap: () => _controller.animateToPage(entry.key),
+                onTap: () {
+                  // TODO: 해당하는 애니메이션 시청 화면으로 이동
+                },
                 child: Container(
                   width: 8.0,
                   height: 8.0,
