@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../data/carousel_data.dart';
 
@@ -13,7 +12,7 @@ class HomeCarouselSlide extends StatefulWidget {
 
 class _HomeCarouselSlideState extends State<HomeCarouselSlide> {
   int _current = 0;
-  final CarouselController _controller = CarouselController();
+  final CarouselSliderController _controller = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {
