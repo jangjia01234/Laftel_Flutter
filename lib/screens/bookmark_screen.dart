@@ -108,8 +108,11 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                         ),
                         itemCount: results.length,
                         itemBuilder: (BuildContext context, int index) {
+                          final anime = results[index];
+
                           return Center(
                             child: SingleAnimeThumbnailCard(
+                                animeId: anime['id'],
                                 width: 150,
                                 imageHeight: 80,
                                 cardHeight: 120,

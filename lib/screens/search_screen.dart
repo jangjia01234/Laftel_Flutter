@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
 import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
 import 'dart:convert';
 
-import '../models/like_model.dart';
 import '../widgets/common/single_anime_thumbnail_card.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -157,18 +155,18 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         itemCount: results.length,
                         itemBuilder: (BuildContext context, int index) {
-                          return ChangeNotifierProvider(
-                            create: (_) => LikeModel(), // 여기서 각 카드마다 독립된 LikeModel 생성
-                            child: Center(
-                              child: Container(
-                                color: Colors.red,
-                                child: SingleAnimeThumbnailCard(
+                          final anime = results[index];
+
+                          return Center(
+                            child: Container(
+                              color: Colors.red,
+                              child: SingleAnimeThumbnailCard(
+                                  animeId: anime['id'],
                                   width: 150,
                                   imageHeight: 80,
                                   cardHeight: 120,
                                   animeTitle: results[index]['name'],
-                                  thumbnailImage: results[index]['image'],
-                                ),
+                                  thumbnailImage: results[index]['image']
                               ),
                             ),
                           );

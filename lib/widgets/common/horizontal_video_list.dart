@@ -64,6 +64,7 @@ class _HorizontalVideoListState extends State<HorizontalVideoList> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SingleAnimeThumbnailCard(
+                          animeId: item['id'],
                           width: 200,
                           imageHeight: 100,
                           cardHeight: 140,

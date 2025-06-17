@@ -6,6 +6,7 @@ import '../../models/like_model.dart';
 class SingleAnimeThumbnailCard extends StatefulWidget {
   const SingleAnimeThumbnailCard({
     super.key,
+    required this.animeId,
     this.width,
     this.imageHeight,
     this.cardHeight,
@@ -13,6 +14,7 @@ class SingleAnimeThumbnailCard extends StatefulWidget {
     this.thumbnailImage,
   });
 
+  final int animeId;
   final double? width;
   final double? imageHeight;
   final double? cardHeight;
@@ -27,6 +29,9 @@ class SingleAnimeThumbnailCard extends StatefulWidget {
 class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
   @override
   Widget build(BuildContext context) {
+    final likeModel = context.watch<LikeModel>();
+    final isLiked = likeModel.isLiked(widget.animeId);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -56,13 +61,14 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
                             ),
                             IconButton(
                               icon: Icon(
-                                context.watch<LikeModel>().isLiked
+                                isLiked
                                     ? Icons.favorite
                                     : Icons.favorite_border,
-                                size: 20,
+                                size: 50,
+                                color: Colors.red,
                               ),
                               onPressed: () {
-                                context.read<LikeModel>().toggleLike();
+                                context.read<LikeModel>().toggleLike(widget.animeId);
                               },
                             )
                           ],

@@ -63,6 +63,7 @@ class _RecentVideoListState extends State<RecentVideoList> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SingleAnimeThumbnailCard(
+                                animeId: item['id'],
                                 width: 200,
                                 imageHeight: 100,
                                 cardHeight: 140,
