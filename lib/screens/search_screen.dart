@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/models/search_result.dart';
 import 'package:layout/widgets/common/thin_divider.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -13,14 +14,15 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  List<dynamic> results = [];
+  List<SearchResult> results = [];
 
   Future<void> fetchSearch(String query) async {
     final url = Uri.parse('http://10.0.2.2:5000/search/$query');
     final resp = await http.get(url);
     if (resp.statusCode == 200) {
+      final List decoded = json.decode(resp.body);
       setState(() {
-        results = json.decode(resp.body);
+        results = decoded.map((e) => SearchResult.fromJson(e)).toList();
       });
     } else {
       throw Exception('서버 호출 실패');
@@ -38,7 +40,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     // MARK: 이름순 정렬
-    results.sort((a, b) => a['name'].compareTo(b['name']));
+    results.sort((a, b) => a.name.compareTo(b.name));
 
     return Scaffold(
         appBar: AppBar(
@@ -161,12 +163,12 @@ class _SearchScreenState extends State<SearchScreen> {
                             child: Container(
                               color: Colors.red,
                               child: SingleAnimeThumbnailCard(
-                                  animeId: anime['id'],
+                                  animeId: anime.id,
                                   width: 150,
                                   imageHeight: 80,
                                   cardHeight: 120,
-                                  animeTitle: results[index]['name'],
-                                  thumbnailImage: results[index]['image']
+                                  animeTitle: results[index].name,
+                                  thumbnailImage: results[index].image
                               ),
                             ),
                           );
