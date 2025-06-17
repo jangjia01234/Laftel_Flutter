@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:go_router/go_router.dart';
+import '../../models/like_model.dart';
 
 class SingleAnimeThumbnailCard extends StatefulWidget {
   const SingleAnimeThumbnailCard({
@@ -29,9 +32,7 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
       children: [
         // TODO: /video -> /video/해당하는애니번호 로 이동하도록 설정
         GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, '/video');
-          },
+            onTap: () => context.go('/video'),
           child:
           Container(
           color: Colors.blue,
@@ -46,11 +47,26 @@ class _SingleAnimeThumbnailCardState extends State<SingleAnimeThumbnailCard> {
                 SizedBox(
                   width: widget.width,
                   height: widget.imageHeight,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(4),
-                    child: Image.network("${widget.thumbnailImage}", fit: BoxFit.cover),
-                  ),
-                ),
+                  child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(4),
+                              child: Image.network("${widget.thumbnailImage}",
+                                  fit: BoxFit.cover),
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                context.watch<LikeModel>().isLiked
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                context.read<LikeModel>().toggleLike();
+                              },
+                            )
+                          ],
+                        )),
                 SizedBox(height: 4),
                 RichText(
                   overflow: TextOverflow.ellipsis,

@@ -1,3 +1,15 @@
+'''
+[사용 방법]
+1. 가상환경(.venv) 활성화
+    source .venv/bin/activate
+2. /lib/utils/ 경로로 이동
+3. Flask 실행
+    python laftel_flask.py
+4. (Flask, laftel 없을 경우) 설치하기
+    pip install flask
+    python3 -m pip install laftel
+'''
+
 from flask import Flask, jsonify
 import laftel
 

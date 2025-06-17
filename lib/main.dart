@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout/models/like_model.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'routes.dart';
@@ -41,8 +42,11 @@ class MyApp extends StatelessWidget {
           : Colors.white,
     ));
 
-    return ChangeNotifierProvider(
-      create: (_) => CounterModel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CounterModel()),
+        ChangeNotifierProvider(create: (_) => LikeModel()),
+      ],
       child: MaterialApp.router(
         // 라우터 연결
         routerConfig: router,
